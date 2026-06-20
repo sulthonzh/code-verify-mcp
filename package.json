@@ -46,6 +46,15 @@
   },
   "files": [
     "dist",
-    "README.md"
-  ]
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sulthonzh/code-verify-mcp.git"
+  },
+  "homepage": "https://github.com/sulthonzh/code-verify-mcp",
+  "bugs": {
+    "url": "https://github.com/sulthonzh/code-verify-mcp/issues"
+  }
 }
