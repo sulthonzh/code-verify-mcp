@@ -1,8 +1,6 @@
 import {
-  CodeQualityMetrics,
   VerificationIssue,
   SecurityScanResult,
-  ComplexityAnalysis,
   VerificationResult,
   CodeVerificationConfig,
 } from './types';
@@ -63,7 +61,7 @@ export class CodeAnalyzer {
   /**
    * Analyze code quality
    */
-  private analyzeQuality(code: string, language: string): {
+  private analyzeQuality(code: string, _language: string): {
     issues: VerificationIssue[];
     recommendations: string[];
   } {
@@ -166,7 +164,6 @@ export class CodeAnalyzer {
   private analyzeSecurity(code: string, language: string): SecurityScanResult {
     const vulnerabilities: any[] = [];
     const recommendations: string[] = [];
-    const lines = code.split('\n');
 
     // Security patterns to check
     const securityChecks = [
@@ -276,7 +273,7 @@ export class CodeAnalyzer {
   /**
    * Calculate security score
    */
-  private calculateSecurityScore(vulnerabilities: any[], recommendations: string[]): number {
+  private calculateSecurityScore(vulnerabilities: any[], _recommendations: string[]): number {
     let score = 100;
 
     for (const vuln of vulnerabilities) {
@@ -292,7 +289,7 @@ export class CodeAnalyzer {
   /**
    * Analyze performance
    */
-  private analyzePerformance(code: string, language: string): {
+  private analyzePerformance(code: string, _language: string): {
     issues: VerificationIssue[];
     recommendations: string[];
   } {

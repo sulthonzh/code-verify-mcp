@@ -34,19 +34,14 @@ const defaultConfig: CodeVerificationConfig = {
   },
 };
 
-// Global analyzer instance
-let analyzer: CodeAnalyzer;
-
 /**
  * Initialize the code analyzer
  */
-export function initializeAnalyzer(config?: Partial<CodeVerificationConfig>): void {
-  const finalConfig: CodeVerificationConfig = {
-    ...defaultConfig,
-    ...config,
-  };
-
-  analyzer = new CodeAnalyzer(finalConfig);
+export function initializeAnalyzer(_config?: Partial<CodeVerificationConfig>): void {
+  // Configuration applied via defaultConfig for subsequent calls
+  if (_config) {
+    Object.assign(defaultConfig, _config);
+  }
 }
 
 /**
@@ -73,7 +68,8 @@ export function analyzeCode(
     thresholds: defaultConfig.thresholds,
   };
 
-  return analyzer.analyze(code, language);
+  const localAnalyzer = new CodeAnalyzer(config);
+  return localAnalyzer.analyze(code, language);
 }
 
 /**
@@ -140,10 +136,9 @@ export function generateTests(code: string, language: string): TestGenerationRes
 /**
  * Analyze code complexity
  */
-export function analyzeComplexity(code: string, language: string): ComplexityAnalysis {
+export function analyzeComplexity(code: string, _language: string): ComplexityAnalysis {
   const lines = code.split('\n');
   const functions = countFunctions(code);
-  const classes = countClasses(code);
 
   // Simple complexity estimation
   const cyclomaticComplexity = estimateCyclomaticComplexity(code);
@@ -180,10 +175,6 @@ function countFunctions(code: string): number {
     count += (code.match(pattern) || []).length;
   }
   return count;
-}
-
-function countClasses(code: string): number {
-  return (code.match(/class\s+\w+/g) || []).length;
 }
 
 function estimateCyclomaticComplexity(code: string): number {

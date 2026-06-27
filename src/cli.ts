@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
-import { analyzeCode, verifyCodeSnippet, generateTests, analyzeComplexity, getConfig, initializeAnalyzer } from './index';
-import { CodeVerificationConfig } from './types';
+import { verifyCodeSnippet, generateTests, analyzeComplexity, getConfig, initializeAnalyzer } from './index';
 
 const program = new Command();
 
