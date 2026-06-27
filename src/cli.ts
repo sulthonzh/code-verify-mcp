@@ -22,16 +22,12 @@ program
   .option('--performance', 'Analyze performance', true)
   .option('--functional', 'Analyze functionality', true)
   .option('-o, --output <format>', 'Output format: json, markdown, text', 'text')
-  .action((code, options) => {
+  .action((code: string, options: Record<string, unknown>) => {
     const result = verifyCodeSnippet(
       code,
-      options.language,
+      options.language as string,
       {
         securityLevel: options.securityLevel as 'basic' | 'strict' | 'comprehensive',
-        analyzeQuality: options.quality,
-        analyzeSecurity: options.security,
-        analyzePerformance: options.performance,
-        analyzeFunctionality: options.functional,
       }
     );
 
@@ -55,8 +51,8 @@ program
   .description('Generate test cases based on code analysis')
   .argument('<code>', 'Code to analyze')
   .option('-l, --language <lang>', 'Programming language', 'javascript')
-  .action((code, options) => {
-    const tests = generateTests(code, options.language);
+  .action((code: string, options: Record<string, unknown>) => {
+    const tests = generateTests(code, options.language as string);
 
     if (tests.tests.length === 0) {
       console.log('No tests generated. The code appears to be valid.');
@@ -81,8 +77,8 @@ program
   .description('Analyze code complexity metrics')
   .argument('<code>', 'Code to analyze')
   .option('-l, --language <lang>', 'Programming language', 'javascript')
-  .action((code, options) => {
-    const complexity = analyzeComplexity(code, options.language);
+  .action((code: string, options: Record<string, unknown>) => {
+    const complexity = analyzeComplexity(code, options.language as string);
 
     console.log('Complexity Analysis Results:\n');
     console.log(`  Cyclomatic Complexity: ${complexity.cyclomaticComplexity.toFixed(2)}`);
@@ -132,10 +128,10 @@ program
   .description('Initialize the code analyzer with custom configuration')
   .option('--security-level <level>', 'Security level: basic, strict, comprehensive', 'basic')
   .option('--max-complexity <number>', 'Maximum complexity threshold', '50')
-  .action((options) => {
+  .action((options: Record<string, unknown>) => {
     initializeAnalyzer({
       securityLevel: options.securityLevel as 'basic' | 'strict' | 'comprehensive',
-      maxComplexity: parseInt(options.maxComplexity),
+      maxComplexity: parseInt(options.maxComplexity as string),
     });
     console.log('Code analyzer initialized successfully!');
     console.log(`  Security Level: ${options.securityLevel}`);

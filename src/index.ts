@@ -1,5 +1,6 @@
-import { CodeAnalyzer, CodeVerificationConfig } from './analysis';
+import { CodeAnalyzer } from './analysis';
 import {
+  CodeVerificationConfig,
   CodeVerificationConfig as ICodeVerificationConfig,
   VerificationResult,
   CodeSnippetVerification,
@@ -141,11 +142,11 @@ export function generateTests(code: string, language: string): TestGenerationRes
  */
 export function analyzeComplexity(code: string, language: string): ComplexityAnalysis {
   const lines = code.split('\n');
-  const functions = this.countFunctions(code);
-  const classes = this.countClasses(code);
+  const functions = countFunctions(code);
+  const classes = countClasses(code);
 
   // Simple complexity estimation
-  const cyclomaticComplexity = this.estimateCyclomaticComplexity(code);
+  const cyclomaticComplexity = estimateCyclomaticComplexity(code);
   const cognitiveComplexity = cyclomaticComplexity * 1.2; // Simplified estimate
   const maintainabilityIndex = 100 - (cyclomaticComplexity * 1.5) - (lines.length * 0.05) - (functions * 0.5);
 
