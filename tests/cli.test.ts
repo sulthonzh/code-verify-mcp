@@ -25,7 +25,7 @@ const result = greet('World');
     });
 
     it('should output JSON format correctly', () => {
-      const code = 'console.log("test");';
+      const _code = 'console.log("test");';
 
       const result = {
         isValid: true,
@@ -83,7 +83,7 @@ const result = greet('World');
     });
 
     it('should handle code with issues correctly', () => {
-      const code = `
+      const _code = `
 eval("console.log('test')");
 
 function longFunction() {
@@ -130,7 +130,7 @@ function longFunction() {
 
   describe('Test Generation', () => {
     it('should generate tests for security issues', () => {
-      const code = 'eval("console.log(\'test\')")';
+      const _code = 'eval("console.log(\'test\')")';
       const tests = [
         {
           description: 'Test for security vulnerability at line 1',
@@ -144,7 +144,7 @@ function longFunction() {
     });
 
     it('should generate tests for quality issues', () => {
-      const code = `
+      const _code = `
 function longFunction() {
   // function body
 }
@@ -163,7 +163,7 @@ function longFunction() {
     });
 
     it('should generate tests for performance issues', () => {
-      const code = `
+      const _code = `
 for (let i = 0; i < 100; i++) {
   for (let j = 0; j < 100; j++) {
     console.log(i, j);
@@ -184,7 +184,7 @@ for (let i = 0; i < 100; i++) {
     });
 
     it('should generate tests for functional issues', () => {
-      const code = `
+      const _code = `
 function emptyFunction() {
   // Do nothing
 }
@@ -203,7 +203,7 @@ function emptyFunction() {
     });
 
     it('should return empty tests for valid code', () => {
-      const code = 'console.log("test");';
+      const _code = 'console.log("test");';
 
       const tests = [];
 
@@ -213,7 +213,7 @@ function emptyFunction() {
 
   describe('Complexity Analysis', () => {
     it('should calculate complexity for simple code', () => {
-      const code = 'console.log("test");';
+      const _code = 'console.log("test");';
 
       const complexity = {
         cyclomaticComplexity: 1,
@@ -227,7 +227,7 @@ function emptyFunction() {
     });
 
     it('should calculate complexity for complex code', () => {
-      const code = `
+      const _code = `
 for (let i = 0; i < 100; i++) {
   for (let j = 0; j < 100; j++) {
     if (i > j) {
@@ -249,7 +249,7 @@ for (let i = 0; i < 100; i++) {
     });
 
     it('should provide suggestions for high complexity', () => {
-      const code = `
+      const _code = `
 for (let i = 0; i < 100; i++) {
   for (let j = 0; j < 100; j++) {
     console.log(i, j);
@@ -270,7 +270,7 @@ for (let i = 0; i < 100; i++) {
     });
 
     it('should handle empty code', () => {
-      const code = '';
+      const _code = '';
 
       const complexity = {
         cyclomaticComplexity: 0,

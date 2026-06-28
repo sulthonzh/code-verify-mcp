@@ -1,6 +1,6 @@
 # code-verify-mcp — AI Code Verification MCP Server
 
-Zero-dependency MCP server for verifying AI-generated code quality, security, and performance. Built to address the critical trust gap where AI coding assistants routinely lie about task completion and produce code with hidden vulnerabilities.
+MCP server for verifying AI-generated code quality, security, and performance. Built to address the critical trust gap where AI coding assistants routinely lie about task completion and produce code with hidden vulnerabilities.
 
 ## Problem Statement
 
@@ -221,7 +221,7 @@ Analyze code complexity metrics.
 Create a configuration file or use environment variables:
 
 ```javascript
-// trustshell.config.js
+// code-verify-mcp.config.js
 module.exports = {
   securityLevel: 'strict',
   analyzeQuality: true,
@@ -529,6 +529,18 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 ## Why code-verify-mcp?
 
 In an era where AI-generated code becomes increasingly prevalent, independent verification is not just a luxury—it's a necessity. code-verify-mcp bridges the gap between AI's "helpful" persona and technical accuracy, giving developers the confidence to trust their AI-assisted development workflow.
+
+### Comparison
+
+| Feature | code-verify-mcp | ESLint | SonarQube | Snyk Code |
+|---|---|---|---|---|
+| **MCP Integration** | ✅ Native | ❌ | ❌ | ❌ |
+| **AI-Code Focus** | ✅ Detects AI patterns | ❌ General | ❌ General | ⚠️ Partial |
+| **Security + Quality** | ✅ Combined | ⚠️ Quality only | ✅ Combined | ✅ Security only |
+| **Complexity Analysis** | ✅ Built-in | ⚠️ Via plugins | ✅ Built-in | ❌ |
+| **Test Generation** | ✅ From issues | ❌ | ❌ | ❌ |
+| **Setup Time** | <2 min | 10+ min | 30+ min | 10+ min |
+| **Zero Config** | ✅ Works instantly | ❌ | ❌ | ❌ |
 
 Built by developers, for developers. 🛡️
 

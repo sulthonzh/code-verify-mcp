@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-06-29
+
+### Changed
+- Replaced `any` types with proper TypeScript interfaces throughout codebase
+- Fixed false "Zero-dependency" claim in README (project uses MCP SDK, commander, diff, js-yaml, semver)
+- Fixed incorrect config file reference (`trustshell.config.js` → `code-verify-mcp.config.js`)
+
+### Added
+- ESLint flat config with typescript-eslint (zero warnings, zero errors)
+- `lint` script in package.json
+- Comparison table in README (vs ESLint, SonarQube, Snyk Code)
+- `SecurityVulnerability` interface for type-safe vulnerability reporting
+- `varsIgnorePattern` for test fixture variables
+
 ## [1.0.0] - 2026-06-15
 
 ### Added

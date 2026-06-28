@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
 import { verifyCodeSnippet, generateTests, analyzeComplexity, getConfig, initializeAnalyzer } from './index';
+import type { CodeSnippetVerification, VerificationIssue } from './types';
 
 const program = new Command();
 
@@ -208,7 +209,7 @@ if (!process.argv.slice(2).length) {
 }
 
 // Text output printer
-function printText(result: any) {
+function printText(result: CodeSnippetVerification): void {
   console.log(`Verification Results:\n`);
 
   if (result.isValid) {
@@ -217,7 +218,7 @@ function printText(result: any) {
     console.log('❌ Code has issues:\n');
   }
 
-  result.issues.forEach((issue: any, index: number) => {
+  result.issues.forEach((issue: VerificationIssue, index: number) => {
     console.log(`${index + 1}. [${issue.severity.toUpperCase()}] ${issue.type}`);
     console.log(`   ${issue.message}`);
     if (issue.suggestion) {
@@ -244,7 +245,7 @@ function printText(result: any) {
 }
 
 // Markdown output printer
-function printMarkdown(result: any) {
+function printMarkdown(result: CodeSnippetVerification): void {
   console.log('# Code Verification Report\n');
 
   if (result.isValid) {
@@ -267,7 +268,7 @@ function printMarkdown(result: any) {
   if (result.issues.length > 0) {
     console.log('\n### Issues\n');
 
-    result.issues.forEach((issue: any, index: number) => {
+    result.issues.forEach((issue: VerificationIssue, index: number) => {
       console.log(`#### ${index + 1}. [${issue.severity.toUpperCase()}] ${issue.type}`);
       console.log(`- **Message:** ${issue.message}`);
       if (issue.suggestion) {

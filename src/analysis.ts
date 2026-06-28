@@ -1,6 +1,7 @@
 import {
   VerificationIssue,
   SecurityScanResult,
+  SecurityVulnerability,
   VerificationResult,
   CodeVerificationConfig,
 } from './types';
@@ -162,7 +163,7 @@ export class CodeAnalyzer {
    * Analyze security
    */
   private analyzeSecurity(code: string, language: string): SecurityScanResult {
-    const vulnerabilities: any[] = [];
+    const vulnerabilities: SecurityVulnerability[] = [];
     const recommendations: string[] = [];
 
     // Security patterns to check
@@ -273,7 +274,7 @@ export class CodeAnalyzer {
   /**
    * Calculate security score
    */
-  private calculateSecurityScore(vulnerabilities: any[], _recommendations: string[]): number {
+  private calculateSecurityScore(vulnerabilities: SecurityVulnerability[], _recommendations: string[]): number {
     let score = 100;
 
     for (const vuln of vulnerabilities) {

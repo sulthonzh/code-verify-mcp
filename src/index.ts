@@ -3,6 +3,7 @@ import {
   CodeVerificationConfig,
   CodeVerificationConfig as ICodeVerificationConfig,
   VerificationResult,
+  VerificationIssue,
   CodeSnippetVerification,
   TestGenerationResult,
   ComplexityAnalysis,
@@ -215,7 +216,7 @@ export function validateCode(
 ): {
   isValid: boolean;
   score: number;
-  issues: any[];
+  issues: VerificationIssue[];
 } {
   const result = verifyCodeSnippet(code, language, {
     securityLevel: options?.securityLevel,

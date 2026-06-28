@@ -31,14 +31,16 @@ export interface CodeQualityMetrics {
   functionsPerClass: number;
 }
 
+export interface SecurityVulnerability {
+  type: string;
+  severity: 'low' | 'medium' | 'high' | 'critical';
+  location: string;
+  description: string;
+}
+
 export interface SecurityScanResult {
   score: number; // 0-100
-  vulnerabilities: {
-    type: string;
-    severity: 'low' | 'medium' | 'high' | 'critical';
-    location: string;
-    description: string;
-  }[];
+  vulnerabilities: SecurityVulnerability[];
   recommendations: string[];
 }
 
