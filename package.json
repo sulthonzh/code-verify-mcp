@@ -14,7 +14,8 @@
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
     "type-check": "tsc --noEmit",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prepublishOnly": "npm run build && npm test"
   },
   "keywords": [
     "mcp",
@@ -62,5 +63,20 @@
   "homepage": "https://github.com/sulthonzh/code-verify-mcp",
   "bugs": {
     "url": "https://github.com/sulthonzh/code-verify-mcp/issues"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./cli": {
+      "types": "./dist/cli.d.ts",
+      "require": "./dist/cli.js",
+      "import": "./dist/cli.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
