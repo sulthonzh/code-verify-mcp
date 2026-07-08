@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+- Security issues now include `suggestion` field (was dropped during vulnerability→issue mapping)
+- SQL injection and XSS vulnerabilities now include actionable suggestions
+- Security recommendations array now populated from security checks (was empty)
+
+### Changed
+- Rewrote CLI tests from simulated mock objects to real integration tests (19 → 37 tests)
+- `SecurityVulnerability` interface extended with optional `suggestion` field
+- Coverage improved: 94.44%→96.48% stmts, 83.82%→86.76% branches, index.ts now 100% stmts
+
 ## [1.0.1] - 2026-06-29
 
 ### Changed

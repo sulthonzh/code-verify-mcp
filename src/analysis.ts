@@ -23,6 +23,7 @@ export class CodeAnalyzer {
         type: 'security' as const,
         severity: v.severity,
         message: v.description,
+        suggestion: v.suggestion,
         line: this.findLineNumber(code, v.location),
         code: v.type,
       })));
@@ -220,7 +221,9 @@ export class CodeAnalyzer {
           severity: check.severity,
           location: `${check.pattern}`,
           description: check.message,
+          suggestion: check.suggestion,
         });
+        recommendations.push(check.suggestion);
       }
     }
 
@@ -240,6 +243,7 @@ export class CodeAnalyzer {
             severity: 'critical' as const,
             location: `Query pattern: ${matches[0]}`,
             description: 'Found dynamic query construction that may lead to SQL injection',
+            suggestion: 'Use parameterized queries instead of string concatenation for SQL.',
           });
           break;
         }
@@ -260,6 +264,7 @@ export class CodeAnalyzer {
             severity: 'high' as const,
             location: 'Element creation',
             description: 'Potential XSS vulnerability detected in element creation',
+            suggestion: 'Sanitize all user input before inserting into DOM elements.',
           });
         }
       }

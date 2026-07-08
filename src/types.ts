@@ -36,6 +36,7 @@ export interface SecurityVulnerability {
   severity: 'low' | 'medium' | 'high' | 'critical';
   location: string;
   description: string;
+  suggestion?: string;
 }
 
 export interface SecurityScanResult {
