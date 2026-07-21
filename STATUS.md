@@ -1,16 +1,16 @@
 # code-verify-mcp — Status
 
-**Last audit:** 2026-07-17 23:56 UTC  
+**Last audit:** 2026-07-21 14:52 UTC  
 **Status:** ✅ EXCEPTIONAL  
 **Version:** 1.0.0  
-**Tests:** 79/79 GREEN ✅ (4 test files)
+**Tests:** 90/90 GREEN ✅ (5 test files)
 
 ## Exceptional Checklist
 
 - [x] **README hooks reader in first 3 lines** — "AI Code Verification MCP Server - Verify AI-generated code quality, security, and performance. Built to address the critical trust gap where AI coding assistants routinely lie about task completion and produce code with hidden vulnerabilities."
 - [x] **Quick start works in <2 minutes** — `npm install && npm run build && npx code-verify-mcp demo` verified working
-- [x] **All tests GREEN (100% pass rate)** — 72/72 (analysis: 17, index: 18, cli: 37)
-- [x] **Test coverage >= 80% on core logic** — 98.49% stmts, 93.38% branches, 100% funcs, 98.9% lines
+- [x] **All tests GREEN (100% pass rate)** — 90/90 (analysis: 17, index: 18, cli: 37, coverage-gaps: 7, coverage-gaps-2: 11)
+- [x] **Test coverage >= 80% on core logic** — 99.49% stmts, 95.58% branches, 100% funcs, 100% lines
 - [x] **Zero TypeScript errors** — `tsc --noEmit` clean (strict mode)
 - [x] **Zero ESLint warnings** — `eslint .` clean
 - [x] **No TODO/FIXME comments in shipped code** — verified via grep (only detection patterns in analysis.ts, which are intentional)
@@ -45,6 +45,6 @@
 
 | File | % Stmts | % Branch | % Funcs | % Lines |
 |------|---------|----------|---------|---------|
-| All files | 98.49% | 93.38% | 100% | 98.9% |
-| analysis.ts | 98.02% | 93.54% | 100% | 98.55% |
-| index.ts | 100% | 91.66% | 100% | 100% |
+| All files | 99.49% | 95.58% | 100% | 100% |
+| analysis.ts | 99.34% | 95.16% | 100% | 100% |
+| index.ts | 100% | 100% | 100% | 100% |
