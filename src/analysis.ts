@@ -253,8 +253,8 @@ export class CodeAnalyzer {
     // XSS checks
     if (language === 'javascript' || language === 'typescript') {
       const xssPatterns = [
-        /createElement\s*\([^)]*\)\s*innerHTML/gi,
-        /document\.createElement[^)]*textContent/gi,
+        /createElement\s*\([^)]*\)\s*\.?\s*innerHTML/gi,
+        /document\.createElement\s*\([^)]*\)\s*\.?\s*textContent/gi,
       ];
 
       for (const pattern of xssPatterns) {
