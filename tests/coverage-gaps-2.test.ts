@@ -19,7 +19,7 @@ describe('Coverage Gap Tests Round 2 — XSS Regex Fix + Remaining Branches', ()
     it('should detect createElement().innerHTML pattern (regex pattern 1)', () => {
       const analyzer = new CodeAnalyzer(securityConfig);
       // Pattern 1: createElement\s*\([^)]*\)\s*\.?\s*innerHTML
-      const code = `
+      const _code = `
 const el = document.createElement('div');
 el.innerHTML = userInput;
 `;
