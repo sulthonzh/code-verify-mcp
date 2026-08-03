@@ -32,7 +32,7 @@
     "@modelcontextprotocol/sdk": "^1.0.4",
     "commander": "^11.1.0",
     "diff": "^9.0.0",
-    "js-yaml": "^4.1.0",
+    "js-yaml": "^5.0.0",
     "semver": "^7.6.0"
   },
   "devDependencies": {
