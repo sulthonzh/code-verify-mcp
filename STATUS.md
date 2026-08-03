@@ -1,6 +1,7 @@
 # code-verify-mcp — Status
 
-**Last audit:** 2026-07-31 13:19 UTC  
+**Last audit:** 2026-07-31 13:19 UTC
+**Re-Verified:** 2026-08-03 (UTC 2026-08-03 15:47) — Merged 12 Dependabot commits, fixed ESLint unused var. 98/98 tests GREEN. Commit f07e144.  
 **Status:** ✅ EXCEPTIONAL  
 **Version:** 1.0.0  
 **Tests:** 98/98 GREEN ✅ (6 test files)
