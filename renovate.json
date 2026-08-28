@@ -2,5 +2,14 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "packageNames": [
+        "typescript"
+      ],
+      "allowedVersions": "^5.9.3",
+      "description": "tsup/rollup-plugin-dts crashes on TS7 (useCaseSensitiveFileNames) \u2014 keep TS <6 until toolchain supports it"
+    }
   ]
 }
